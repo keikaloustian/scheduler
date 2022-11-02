@@ -20,12 +20,14 @@ import InterviewerListItem from "./InterviewerListItem";
 
 export default function InterviewerList(props) {
   
+  // Interviewer data currently received as prop (to later come from API)
   const interviewersArray = props.interviewers.map((interviewerObj) => {
     return (
       <InterviewerListItem
-        {...interviewerObj}
+        name={interviewerObj.name}
+        avatar={interviewerObj.avatar}
         key={interviewerObj.id}
-        setInterviewer={props.setInterviewer}
+        setInterviewer={() => props.setInterviewer(interviewerObj.id)}
         selected={props.interviewer === interviewerObj.id}
       />
     );
