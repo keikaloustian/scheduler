@@ -23,7 +23,7 @@ import DayListItem from './DayListItem';
 
 export default function DayList(props) {
 
-  const daysParsed = props.days.map((dayObj) => {
+  const daysArray = props.days.map((dayObj) => {
     return <DayListItem
       key={dayObj.id}
       name={dayObj.name}
@@ -35,7 +35,7 @@ export default function DayList(props) {
 
   return (
     <ul>
-      {daysParsed}
+      {daysArray}
     </ul>
   );
 }
