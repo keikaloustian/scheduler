@@ -27,9 +27,7 @@ export default function InterviewerList(props) {
         name={interviewerObj.name}
         avatar={interviewerObj.avatar}
         key={interviewerObj.id}
-        // props.interviewer -> props.value
         selected={props.value === interviewerObj.id}
-        // props.setInterviewer -> onChange
         setInterviewer={() => props.onChange(interviewerObj.id)}
       />
     );
