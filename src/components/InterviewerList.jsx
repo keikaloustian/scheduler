@@ -20,7 +20,6 @@ import InterviewerListItem from "./InterviewerListItem";
 
 export default function InterviewerList(props) {
   
-  // Interviewer data currently received as prop (to later come from API)
   const interviewersArray = props.interviewers.map((interviewerObj) => {
     return (
       <InterviewerListItem
