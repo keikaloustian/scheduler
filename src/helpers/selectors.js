@@ -18,7 +18,7 @@ export function getAppointmentsForDay(state, day) {
   })
   
   return output;
-};
+}
 
 
 export function getInterview(state, interview) {
@@ -32,4 +32,4 @@ export function getInterview(state, interview) {
   const interviewer = state.interviewers[interviewerID]
   
   return { ...interview, interviewer };
-};
+}
