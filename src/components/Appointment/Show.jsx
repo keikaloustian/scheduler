@@ -1,11 +1,5 @@
 import React from "react";
 
-// const interviewer = {
-//   id: 1,
-//   name: "Sylvia Palmer",
-//   avatar: "https://i.imgur.com/LpaY82x.png"
-// };
-
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">
