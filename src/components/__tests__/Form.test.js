@@ -54,7 +54,7 @@ describe("Form", () => {
     const onSave = jest.fn();
 
     /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the interviewer prop should be null */
-    const { getByText } = render(<Form student="Lydia Miller-Jones" interviewers={interviewers} interviewer={null} onSave={onSave} />);
+    const { getByText } = render(<Form student="Lydia Miller-Jones" interviewers={interviewers} onSave={onSave} />);
 
     /* 3. Click the save button */
     fireEvent.click(getByText('Save'));
