@@ -61,7 +61,7 @@ export default function Appointment(props) {
 
   
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
 
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
@@ -75,35 +75,23 @@ export default function Appointment(props) {
         />
       )}
 
-      {mode === CREATE && 
-        <Form 
-          interviewers={props.interviewers}
-          onSave={save}
-          onCancel={back}
-        />
-      }
+      {mode === CREATE && (
+        <Form interviewers={props.interviewers} onSave={save} onCancel={back} />
+      )}
 
-      {mode === SAVING && 
-        <Status
-          message={'Saving...'}
-        />
-      }
+      {mode === SAVING && <Status message={"Saving..."} />}
 
-      {mode === DELETING && 
-        <Status
-          message={'Deleting...'}
-        />
-      }
+      {mode === DELETING && <Status message={"Deleting..."} />}
 
-      {mode === CONFIRM &&
-        <Confirm 
-          message={'Are you sure you want to delete?'}
+      {mode === CONFIRM && (
+        <Confirm
+          message={"Are you sure you want to delete?"}
           onCancel={back}
           onConfirm={deleteAppointment}
         />
-      }
+      )}
 
-      {mode === EDIT &&
+      {mode === EDIT && (
         <Form
           interviewers={props.interviewers}
           student={props.interview.student}
@@ -111,25 +99,15 @@ export default function Appointment(props) {
           onSave={save}
           onCancel={back}
         />
-      }
+      )}
 
-      {mode === ERROR_SAVE &&
-        <Error
-          message={'Unable to save appointment'}
-          onClose={back}
-        />
-      }
-      
-      {mode === ERROR_DELETE &&
-        <Error
-          message={'Unable to delete appointment'}
-          onClose={back}
-        />
-      }
+      {mode === ERROR_SAVE && (
+        <Error message={"Unable to save appointment"} onClose={back} />
+      )}
 
-
-
-      
+      {mode === ERROR_DELETE && (
+        <Error message={"Unable to delete appointment"} onClose={back} />
+      )}
     </article>
   );
 };

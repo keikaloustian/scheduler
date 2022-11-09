@@ -20,6 +20,16 @@ export function getAppointmentsForDay(state, day) {
   return output;
 }
 
+export function getSpotsForDay(state, day) {
+  const appointments = getAppointmentsForDay(state, day);
+  let spots = 0;
+  for (let appointment of appointments) {
+    if (!appointment.interview) {
+      spots++;
+    }
+  }
+  return spots;
+}
 
 export function getInterview(state, interview) {
   
