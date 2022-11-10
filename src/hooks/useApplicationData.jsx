@@ -37,6 +37,7 @@ export default function useApplicationData(initial) {
 
   function bookInterview(id, interview) {
 
+    // Update appointments and capture in temporary state object
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -52,11 +53,14 @@ export default function useApplicationData(initial) {
       appointments
     }
 
+    // Determine no. of spots and obtain updated days array
     const newDays = updateSpotsInDays(intermediateState, intermediateState.day);
+
+    const updatedState = { ...intermediateState, days: newDays };
 
     return axios.put(`/api/appointments/${id}`, appointment)
       .then(response => {
-        setState({ ...intermediateState, days: newDays });
+        setState(updatedState);
       })
     
   }
@@ -65,17 +69,31 @@ export default function useApplicationData(initial) {
 
     return axios.delete(`/api/appointments/${id}`)
       .then(response => {
+
+        // Update appointments and capture in temporary state object
         const appointment = {
           ...state.appointments[id],
-          interview: null
+          interview: null,
         };
 
         const appointments = {
           ...state.appointments,
-          [id]: appointment
+          [id]: appointment,
         };
 
-        setState({ ...state, appointments });
+        const intermediateState = {
+          ...state,
+          appointments,
+        };
+
+        // Determine no. of spots and obtain updated days array
+        const newDays = updateSpotsInDays(
+          intermediateState,
+          intermediateState.day
+        );
+
+        const updatedState = { ...intermediateState, days: newDays };
+        setState(updatedState);
       })
   }
 

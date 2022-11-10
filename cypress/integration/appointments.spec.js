@@ -5,7 +5,7 @@ describe("Appointments", () => {
     cy.contains("Monday");
   })
 
-  xit("should book an interview", () => {
+  it("should book an interview", () => {
     
     cy.get('[alt="Add"]')
       .first()
@@ -25,7 +25,7 @@ describe("Appointments", () => {
   });
 
 
-  xit("should edit an interview", () => {
+  it("should edit an interview", () => {
     
     cy.get('[alt="Edit"]').first()
       .click({force: true})
