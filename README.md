@@ -2,6 +2,12 @@
 
 ReactJS single page application thoroughly tested with Jest, Storybook and Cypress.
 
+## Final Product
+!["Appointments in display"](https://github.com/keikaloustian/scheduler/blob/master/docs/appointments.png?raw=true)
+!["New appointment form"](https://github.com/keikaloustian/scheduler/blob/master/docs/new-appointment.png?raw=true)
+!["Deletion confirmation"](https://github.com/keikaloustian/scheduler/blob/master/docs/delete-appointment.png?raw=true)
+
+
 ## Setup
 
 1. Clone this repository.
