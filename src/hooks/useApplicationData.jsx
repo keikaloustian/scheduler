@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-// import { getSpotsForDay } from "helpers/selectors";
+import { getSpotsForDay } from "helpers/selectors";
 
 export default function useApplicationData(initial) {
   const [state, setState] = useState({
@@ -32,7 +32,6 @@ export default function useApplicationData(initial) {
 
 
   const setDay = (day) => setState({ ...state, day });
-  // const freeSpots = getSpotsForDay(state, state.day);
 
   // const weekdayIndex = {
   //   'Monday': 0,
@@ -54,29 +53,13 @@ export default function useApplicationData(initial) {
       [id]: appointment
     };
 
+
+
     return axios.put(`/api/appointments/${id}`, appointment)
       .then(response => {
         setState({ ...state, appointments });
-        // console.log(state);
       })
-      // .then(() => {
-      //   const currentDayIndex = weekdayIndex[state.day];
-      //   const dayObj = {
-      //     ...state.days[currentDayIndex],
-      //     spots: getSpotsForDay(state, state.day)
-      //   }
-      //   console.log(dayObj)
-
-      //   const daysArray = [ ...state.days];
-      //   daysArray.splice(currentDayIndex, 1, dayObj);
-
-      //   setState(prev => {
-      //     return {
-      //       ...prev,
-      //       days: daysArray
-      //     }
-      //   })
-      // })
+    
   }
 
   function cancelInterview(id) {
