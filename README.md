@@ -1,9 +1,9 @@
 # Interview Scheduler
 
-Single page application built with React & Axios.
-Thoroughly tested with Jest, Storybook and Cypress.
-This project taught me the importance of testing in development.
-And the challenges that come with it.
+Single page application built with React & Axios.  
+Thoroughly tested with Jest, Storybook and Cypress.  
+This project taught me the importance of testing in development.  
+And the challenges that come with it.  
 
 ## Final Product
 !["Appointments in display"](https://github.com/keikaloustian/scheduler/blob/master/docs/appointments.png?raw=true)
