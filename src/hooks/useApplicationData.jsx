@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { getSpotsForDay } from "helpers/selectors";
+import { getAppointmentsForDay, updateSpotsInDays } from "helpers/selectors";
 
 export default function useApplicationData(initial) {
   const [state, setState] = useState({
@@ -33,13 +33,7 @@ export default function useApplicationData(initial) {
 
   const setDay = (day) => setState({ ...state, day });
 
-  // const weekdayIndex = {
-  //   'Monday': 0,
-  //   'Tuesday': 1,
-  //   'Wednesday': 2,
-  //   'Thursday': 3,
-  //   'Friday': 4
-  // }
+
 
   function bookInterview(id, interview) {
 
@@ -53,11 +47,16 @@ export default function useApplicationData(initial) {
       [id]: appointment
     };
 
+    const intermediateState = {
+      ...state,
+      appointments
+    }
 
+    const newDays = updateSpotsInDays(intermediateState, intermediateState.day);
 
     return axios.put(`/api/appointments/${id}`, appointment)
       .then(response => {
-        setState({ ...state, appointments });
+        setState({ ...intermediateState, days: newDays });
       })
     
   }

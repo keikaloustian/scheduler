@@ -63,15 +63,38 @@ export function getAppointmentsForDay(state, day) {
   return output;
 }
 
-export function updateSpotsInDay(state, day) {
+export function updateSpotsInDays(state, day) {
   const appointments = getAppointmentsForDay(state, day);
-  let spots = 0;
+  let numSpots = 0;
   for (let appointment of appointments) {
     if (!appointment.interview) {
-      spots++;
+      numSpots++;
     }
   }
-  return spots;
+
+  const weekdayIndices = {
+    'Monday': 0,
+    'Tuesday': 1,
+    'Wednesday': 2,
+    'Thursday': 3,
+    'Friday': 4
+  }
+  const dayIndex = weekdayIndices[day]; 
+
+  const newDay = {
+    ...state.days[dayIndex],
+    spots: numSpots
+  };
+
+  const newDays = state.days.map((dayObj) => {
+    if (dayObj.name === state.day) {
+      return newDay;
+    } else {
+      return dayObj;
+    }
+  });
+
+  return newDays;
 }
 
 
