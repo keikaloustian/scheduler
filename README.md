@@ -1,14 +1,11 @@
 # Interview Scheduler
 
+ReactJS single page application thoroughly tested with Jest, Storybook and Cypress.
+
 ## Setup
 
-Install dependencies with `npm install`.
-
-## Running Webpack Development Server
-
-```sh
-npm start
-```
+1. Clone this repository.
+2. Install dependencies using the `npm install` command.
 
 ## Running Jest Test Framework
 
@@ -20,4 +17,10 @@ npm test
 
 ```sh
 npm run storybook
+```
+
+## Running Cypress Testing Framework
+
+```sh
+npm run cypress
 ```
