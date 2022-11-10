@@ -53,7 +53,7 @@ export default function useApplicationData(initial) {
       appointments
     }
 
-    // Determine no. of spots and obtain updated days array
+    // Determine no. of remaining spots and obtain updated days array
     const newDays = updateSpotsInDays(intermediateState, intermediateState.day);
 
     const updatedState = { ...intermediateState, days: newDays };
@@ -86,7 +86,7 @@ export default function useApplicationData(initial) {
           appointments,
         };
 
-        // Determine no. of spots and obtain updated days array
+        // Determine no. of remaining spots and obtain updated days array
         const newDays = updateSpotsInDays(
           intermediateState,
           intermediateState.day
