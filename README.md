@@ -17,6 +17,7 @@ And the challenges that come with it.
 * React
 * ReactDOM
 * react-scripts
+* SASS
 
 ## Setup
 
